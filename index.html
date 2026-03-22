@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حملة إحياء الغابات بالمغرب | اغرس اليوم للأخضر ديال الغد</title>
+  <meta
+    name="description"
+    content="منصة تعريفية للمساهمة في حملة إحياء الغابات بالمغرب عبر الغرس، التطوع، والدعم المجتمعي من أجل حماية التنوع البيولوجي ومواجهة التصحر."
+  />
+  <style>
+    :root {
+      --green-900: #123524;
+      --green-800: #1d5132;
+      --green-700: #2b6a43;
+      --green-500: #3f915a;
+      --green-200: #cde8d0;
+      --sand: #f7f0df;
+      --white: #ffffff;
+      --text: #17301f;
+      --muted: #4b6354;
+      --accent: #f0b429;
+      --shadow: 0 18px 50px rgba(18, 53, 36, 0.14);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Tahoma", "Arial", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(240, 180, 41, 0.17), transparent 25%),
+        linear-gradient(180deg, #f9fcf8, #eff7ef 55%, #f8f3e7 100%);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 1.2rem 0 4rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-weight: 700;
+    }
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, var(--green-700), var(--green-900));
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .button,
+    button {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 0.9rem 1.35rem;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover,
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(18, 53, 36, 0.12);
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, var(--green-700), var(--green-900));
+      color: var(--white);
+    }
+
+    .button-secondary {
+      background: rgba(255,255,255,0.72);
+      color: var(--green-900);
+      border: 1px solid rgba(18, 53, 36, 0.12);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2.2rem, 4vw, 4.4rem);
+      line-height: 1.2;
+      margin: 0.3rem 0 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(63, 145, 90, 0.12);
+      color: var(--green-800);
+      border: 1px solid rgba(63, 145, 90, 0.18);
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 60ch;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.6rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card,
+    .info-card,
+    .step,
+    .form-card,
+    .impact-card,
+    .quote-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(18, 53, 36, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-card {
+      padding: 1rem;
+    }
+
+    .stat-card strong {
+      display: block;
+      color: var(--green-900);
+      font-size: 1.6rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-panel {
+      padding: 1.3rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.93), rgba(205, 232, 208, 0.92));
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -60px auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(240, 180, 41, 0.22);
+    }
+
+    .hero-visual {
+      min-height: 470px;
+      border-radius: 24px;
+      padding: 1.4rem;
+      background:
+        linear-gradient(180deg, rgba(18, 53, 36, 0.06), rgba(18, 53, 36, 0.02)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='700' viewBox='0 0 900 700'%3E%3Crect fill='%23ecf7eb' width='900' height='700'/%3E%3Cpath d='M0 518c105-18 171-53 263-39s148 61 235 58c84-2 134-65 223-76 64-9 119 6 179 34v205H0Z' fill='%23cde8d0'/%3E%3Cpath d='M0 567c81-8 172-34 252-2s138 56 239 46c85-8 153-58 239-64 63-4 111 15 170 44v109H0Z' fill='%2393c59b'/%3E%3Cg fill='%232b6a43'%3E%3Cpath d='M140 444l33-63 34 63h-21v69h-25v-69Z'/%3E%3Cpath d='M237 384l43-81 43 81h-26v87h-33v-87Z'/%3E%3Cpath d='M362 425l34-63 34 63h-21v70h-26v-70Z'/%3E%3Cpath d='M495 367l48-92 48 92h-29v95h-38v-95Z'/%3E%3Cpath d='M643 432l31-59 31 59h-19v66h-24v-66Z'/%3E%3Cpath d='M733 398l38-73 38 73h-23v78h-29v-78Z'/%3E%3C/g%3E%3C/svg%3E") center/cover no-repeat;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .floating-card {
+      width: max-content;
+      max-width: 100%;
+      padding: 0.9rem 1rem;
+      background: rgba(255, 255, 255, 0.93);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    main section {
+      padding: 2rem 0;
+    }
+
+    .section-head {
+      margin-bottom: 1.4rem;
+    }
+
+    .section-head h2 {
+      margin: 0 0 0.55rem;
+      font-size: clamp(1.6rem, 2.7vw, 2.6rem);
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 66ch;
+    }
+
+    .grid-3,
+    .steps,
+    .impact-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .info-card,
+    .impact-card,
+    .step,
+    .form-card,
+    .quote-card {
+      padding: 1.4rem;
+    }
+
+    .info-card h3,
+    .impact-card h3,
+    .step h3 {
+      margin-top: 0;
+      margin-bottom: 0.45rem;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--green-900);
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+    }
+
+    .steps {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .impact-grid {
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: start;
+    }
+
+    .impact-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .impact-item {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+
+    .impact-item span {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(63, 145, 90, 0.13);
+      color: var(--green-800);
+      font-weight: 700;
+    }
+
+    form {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.95rem;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(18, 53, 36, 0.14);
+      border-radius: 16px;
+      padding: 0.95rem 1rem;
+      font: inherit;
+      background: rgba(255,255,255,0.96);
+      color: var(--text);
+    }
+
+    textarea { min-height: 130px; resize: vertical; }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 0;
+    }
+
+    .quote-card {
+      background: linear-gradient(180deg, rgba(18, 53, 36, 0.96), rgba(29, 81, 50, 0.96));
+      color: var(--white);
+    }
+
+    .quote-card p {
+      color: rgba(255,255,255,0.88);
+    }
+
+    .footer {
+      padding: 1rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-box {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(18, 53, 36, 0.1);
+      padding-top: 1rem;
+    }
+
+    .pill-list {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .pill {
+      background: rgba(18, 53, 36, 0.06);
+      border: 1px solid rgba(18, 53, 36, 0.08);
+      border-radius: 999px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .impact-grid,
+      .grid-3,
+      .steps,
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-visual {
+        min-height: 340px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <div class="brand">
+          <div class="brand-mark">🌲</div>
+          <div>
+            <div>حملة إحياء الغابات بالمغرب</div>
+            <small>منصة للتعبئة من أجل الغرس والحفاظ على الطبيعة</small>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#about">عن الحملة</a>
+          <a href="#impact">الأثر</a>
+          <a href="#join">انضم إلينا</a>
+          <a class="button button-primary" href="#join">ساهم الآن</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="badge">🇲🇦 من أجل غابات أكثر حياة واستدامة</span>
+          <h1>اغرس اليوم شجرة… وامنح المغرب نفساً أخضر للغد.</h1>
+          <p class="lead">
+            هذه المنصة التعريفية تدعو الأفراد، المدارس، الجمعيات، والمقاولات إلى المساهمة في حملة
+            إحياء الغابات بالمغرب عبر التشجير، التطوع الميداني، والدعم اللوجستي والمالي لحماية التربة،
+            المياه، والتنوع البيولوجي.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#join">سجّل للمساهمة</a>
+            <a class="button button-secondary" href="#about">اكتشف أهداف الحملة</a>
+          </div>
+          <div class="stats">
+            <div class="stat-card">
+              <strong>+50,000</strong>
+              شتلة مستهدفة في المرحلة الأولى من الحملة.
+            </div>
+            <div class="stat-card">
+              <strong>12</strong>
+              موقعاً مقترحاً للغرس في مناطق تحتاج إلى دعم بيئي.
+            </div>
+            <div class="stat-card">
+              <strong>100%</strong>
+              تعبئة مجتمعية تعتمد على الشراكة والتطوع والتوعية.
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="لوحة معلومات الحملة">
+          <div class="hero-visual">
+            <div class="floating-card">
+              <strong>موسم الغرس</strong>
+              <div>من أكتوبر إلى مارس حسب الظروف المناخية والمجالية.</div>
+            </div>
+            <div class="floating-card">
+              <strong>كيف تساهم؟</strong>
+              <div>متطوع ميداني • داعم مالي • شريك لوجستي • سفير توعوي</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>لماذا نحتاج إلى حملة إحياء الغابات؟</h2>
+          <p>
+            لأن الغابة ليست مجرد أشجار، بل منظومة حياة كاملة تحمي التربة من الانجراف، وتدعم التنوع
+            البيولوجي، وتساهم في تلطيف المناخ المحلي، وتوفر فضاءات طبيعية للأجيال القادمة.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="info-card">
+            <h3>مواجهة التصحر</h3>
+            <p>
+              غرس الأشجار في المناطق المتضررة يساعد على تثبيت التربة وتقليص آثار التعرية وزحف الأراضي الجافة.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>حماية التنوع البيولوجي</h3>
+            <p>
+              الغابات المغربية موطن لأنواع نباتية وحيوانية تحتاج إلى موائل آمنة ومتوازنة للاستمرار.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>بناء وعي بيئي</h3>
+            <p>
+              المشاركة في الغرس تحوّل الاهتمام بالبيئة إلى سلوك جماعي دائم داخل المدارس والأحياء والمؤسسات.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <h2>كيف تنجح مساهمتك؟</h2>
+          <p>
+            صممنا مساراً بسيطاً يسهّل الانضمام للحملة سواء كنت فرداً راغباً في التطوع أو جهة ترغب في تقديم دعم أكبر.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>اختر نوع المساهمة</h3>
+            <p>حدد إن كنت ترغب في الغرس الميداني، التبرع، توفير المعدات، أو الدعم الإعلامي.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>سجّل بياناتك</h3>
+            <p>املأ الاستمارة بمعلومات التواصل، المدينة، وعدد الأشخاص أو الموارد التي يمكنك توفيرها.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>تلقَّ تفاصيل المشاركة</h3>
+            <p>تتوصل برسالة تأكيد تتضمن تاريخ النشاط، الموقع، والاحتياجات الخاصة بكل محطة غرس.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">4</div>
+            <h3>شارك وانشر الأثر</h3>
+            <p>كن جزءاً من التغيير وشارك تجربتك لتحفيز مزيد من المشاركين على الانخراط.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="container impact-grid">
+        <div>
+          <div class="section-head">
+            <h2>الأثر الذي نصنعه معاً</h2>
+            <p>
+              مساهمتك اليوم يمكن أن تتحول إلى أثر طويل المدى على البيئة المحلية وجودة الحياة في المناطق المستهدفة.
+            </p>
+          </div>
+
+          <div class="impact-list">
+            <div class="impact-item">
+              <span>🌱</span>
+              <div>
+                <strong>رفع الغطاء النباتي</strong>
+                <p>استعادة المساحات المتدهورة تدريجياً بأصناف ملائمة للبيئة المحلية وقدرتها على التكيف.</p>
+              </div>
+            </div>
+            <div class="impact-item">
+              <span>💧</span>
+              <div>
+                <strong>تحسين حفظ المياه</strong>
+                <p>الجذور تساعد على امتصاص مياه الأمطار وتقليل الجريان السطحي الذي يضر التربة.</p>
+              </div>
+            </div>
+            <div class="impact-item">
+              <span>🤝</span>
+              <div>
+                <strong>تقوية العمل الجماعي</strong>
+                <p>تجمع الحملة بين المجتمع المدني، المدارس، الأسر، والمقاولات حول هدف وطني مشترك.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pill-list" aria-label="قيم الحملة">
+            <span class="pill">الاستدامة</span>
+            <span class="pill">التطوع</span>
+            <span class="pill">التوعية</span>
+            <span class="pill">الشراكة</span>
+            <span class="pill">المواطنة البيئية</span>
+          </div>
+        </div>
+
+        <aside>
+          <div class="impact-card">
+            <h3>مقترح البرنامج الميداني</h3>
+            <p>
+              تبدأ الحملة بحصص توعوية قصيرة، ثم توزيع الفرق على مواقع الغرس، يليها تتبع أولي لسقي الشتلات
+              وتوثيق عدد الأشجار المغروسة ونسبة الانخراط المحلي.
+            </p>
+            <ul>
+              <li>استقبال المشاركين وتوزيع الأدوات الواقية.</li>
+              <li>شرح مبسط لطريقة الغرس والعناية الأولية بالشتلات.</li>
+              <li>تنسيق الفرق حسب الأعمار والقدرات ونوع المساهمة.</li>
+              <li>توثيق النتائج ومشاركتها مع الداعمين والمتطوعين.</li>
+            </ul>
+          </div>
+
+          <div class="quote-card" style="margin-top: 1rem;">
+            <h3>رسالة الحملة</h3>
+            <p>
+              “كل شجرة نغرسها اليوم هي وعد بمغرب أكثر اخضراراً، أكثر توازناً، وأكثر قدرة على مواجهة آثار التغيرات المناخية.”
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="join">
+      <div class="container">
+        <div class="section-head">
+          <h2>انضم إلى الحملة</h2>
+          <p>
+            املأ هذه الاستمارة الأولية لنعرف نوع مساهمتك ونتواصل معك عند برمجة أنشطة الغرس أو الشراكات القادمة.
+          </p>
+        </div>
+
+        <div class="form-card">
+          <form id="contributionForm">
+            <div class="field-row">
+              <label>
+                الاسم الكامل
+                <input type="text" name="fullName" placeholder="مثال: فاطمة الزهراء العلوي" required />
+              </label>
+              <label>
+                البريد الإلكتروني
+                <input type="email" name="email" placeholder="name@example.com" required />
+              </label>
+            </div>
+
+            <div class="field-row">
+              <label>
+                المدينة أو الجهة
+                <input type="text" name="location" placeholder="الرباط، فاس، بني ملال..." required />
+              </label>
+              <label>
+                نوع المساهمة
+                <select name="contributionType" required>
+                  <option value="">اختر نوع المساهمة</option>
+                  <option>متطوع/ة في الغرس</option>
+                  <option>دعم مالي</option>
+                  <option>دعم لوجستي أو معدات</option>
+                  <option>شراكة مع مؤسسة أو جمعية</option>
+                  <option>دعم إعلامي وتوعوي</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              كيف يمكن أن تساهم؟
+              <textarea name="details" placeholder="اذكر عدد المشاركين المحتملين، نوع المعدات، أو أي تفاصيل إضافية تساعد على التنسيق."></textarea>
+            </label>
+
+            <div class="field-row">
+              <label>
+                عدد المشاركين المتوقع
+                <input type="number" name="participants" min="1" placeholder="1" />
+              </label>
+              <label>
+                وسيلة التواصل المفضلة
+                <select name="contactMethod" required>
+                  <option value="">اختر الوسيلة</option>
+                  <option>البريد الإلكتروني</option>
+                  <option>الهاتف</option>
+                  <option>واتساب</option>
+                </select>
+              </label>
+            </div>
+
+            <button type="submit" class="button button-primary">إرسال طلب المساهمة</button>
+            <p class="note" id="formNote">
+              هذه نسخة أولية توضيحية للموقع؛ يمكن لاحقاً ربط الاستمارة بخدمة استقبال فعلية للطلبات.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-box">
+      <div>
+        <strong>حملة إحياء الغابات بالمغرب</strong>
+        <div>منصة تحفيزية لدعم الغرس والعمل البيئي المشترك.</div>
+      </div>
+      <div>© <span id="year"></span> جميع الحقوق محفوظة.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('contributionForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const fullName = new FormData(event.target).get('fullName') || 'صديق/ة الحملة';
+      const note = document.getElementById('formNote');
+      note.textContent = `شكراً ${fullName} على اهتمامك. تم تسجيل طلبك بشكل تجريبي داخل الواجهة، ويمكن لاحقاً ربطه بنظام استقبال حقيقي.`;
+      note.style.color = '#1d5132';
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>
